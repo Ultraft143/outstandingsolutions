@@ -79,7 +79,7 @@ export function ContactSection() {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="max-w-4xl mx-auto text-center mb-16">
-          <span className="inline-block text-secondary font-semibold text-sm uppercase tracking-wider mb-4">
+          <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">
             Fale Connosco
           </span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
@@ -164,7 +164,7 @@ export function ContactSection() {
                   {interests.map((interest) => (
                     <label
                       key={interest.id}
-                      className="flex items-center gap-3 p-3 rounded-lg border border-border hover:border-secondary/50 cursor-pointer transition-colors"
+                      className="flex items-center gap-3 p-3 rounded-lg border border-border hover:border-primary/50 cursor-pointer transition-colors"
                     >
                       <Checkbox
                         checked={formData.interesses.includes(interest.id)}
@@ -193,8 +193,8 @@ export function ContactSection() {
               <div className="space-y-6">
                 {contactInfo.map((item) => (
                   <div key={item.label} className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-secondary/20 flex items-center justify-center flex-shrink-0">
-                      <item.icon className="w-5 h-5 text-secondary" />
+                    <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center flex-shrink-0">
+                      <item.icon className="w-5 h-5 text-primary" />
                     </div>
                     <div>
                       <p className="text-sm text-primary-foreground/60 mb-1">
@@ -205,7 +205,7 @@ export function ContactSection() {
                           href={item.href}
                           target={item.href.startsWith("http") ? "_blank" : undefined}
                           rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                          className="font-medium hover:text-secondary transition-colors"
+                          className="font-medium hover:text-primary transition-colors"
                         >
                           {item.value}
                         </a>

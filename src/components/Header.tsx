@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import logoHorizontal from "@/assets/logo-horizontal.png";
 
 const navLinks = [
   { href: "#inicio", label: "Início" },
@@ -39,19 +40,16 @@ export function Header() {
       }`}
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
-        {/* Logo placeholder */}
+        {/* Logo */}
         <button
           onClick={() => scrollToSection("#inicio")}
-          className="flex items-center gap-2"
+          className="flex items-center"
         >
-          <div className="w-10 h-10 rounded-lg bg-gradient-gold flex items-center justify-center">
-            <span className="font-display text-xl font-bold text-primary">O</span>
-          </div>
-          <span className={`font-display text-xl font-semibold transition-colors duration-300 ${
-            isScrolled ? "text-foreground" : "text-primary-foreground"
-          }`}>
-            Outstanding
-          </span>
+          <img 
+            src={logoHorizontal} 
+            alt="Outstanding Solutions - Consultoria Financeira" 
+            className="h-10 md:h-12 w-auto"
+          />
         </button>
 
         {/* Desktop Navigation */}
@@ -60,8 +58,8 @@ export function Header() {
             <button
               key={link.href}
               onClick={() => scrollToSection(link.href)}
-              className={`text-sm font-medium transition-colors duration-300 hover:text-secondary ${
-                isScrolled ? "text-foreground" : "text-primary-foreground"
+              className={`text-sm font-medium transition-colors duration-300 hover:text-primary ${
+                isScrolled ? "text-foreground" : "text-secondary"
               }`}
             >
               {link.label}
@@ -72,7 +70,7 @@ export function Header() {
         {/* CTA Button */}
         <div className="hidden lg:block">
           <Button
-            variant={isScrolled ? "hero" : "heroOutline"}
+            variant="hero"
             size="lg"
             onClick={() => scrollToSection("#contacto")}
           >
@@ -86,9 +84,9 @@ export function Header() {
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? (
-            <X className={isScrolled ? "text-foreground" : "text-primary-foreground"} size={24} />
+            <X className={isScrolled ? "text-foreground" : "text-secondary"} size={24} />
           ) : (
-            <Menu className={isScrolled ? "text-foreground" : "text-primary-foreground"} size={24} />
+            <Menu className={isScrolled ? "text-foreground" : "text-secondary"} size={24} />
           )}
         </button>
       </div>
@@ -101,7 +99,7 @@ export function Header() {
               <button
                 key={link.href}
                 onClick={() => scrollToSection(link.href)}
-                className="text-left py-2 text-foreground font-medium hover:text-secondary transition-colors"
+                className="text-left py-2 text-foreground font-medium hover:text-primary transition-colors"
               >
                 {link.label}
               </button>

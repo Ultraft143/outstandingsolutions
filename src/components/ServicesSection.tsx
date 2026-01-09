@@ -100,12 +100,12 @@ export function ServicesSection() {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="max-w-4xl mx-auto text-center mb-20">
-          <span className="inline-block text-secondary font-semibold text-sm uppercase tracking-wider mb-4">
+          <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">
             Soluções e Serviços
           </span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
             As Nossas Soluções Outstanding{" "}
-            <span className="text-gradient-gold">& Serviços Estratégicos</span>
+            <span className="text-gradient-teal">& Serviços Estratégicos</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             Na Outstanding Solutions, cada cliente é único. Adaptamos os nossos
@@ -131,7 +131,7 @@ export function ServicesSection() {
                       <div className="w-16 h-16 rounded-2xl bg-gradient-hero flex items-center justify-center shadow-card">
                         <service.icon className="w-8 h-8 text-primary-foreground" />
                       </div>
-                      <span className="text-6xl font-display font-bold text-secondary/30">
+                      <span className="text-6xl font-display font-bold text-primary/30">
                         {service.number}
                       </span>
                     </div>
@@ -142,7 +142,7 @@ export function ServicesSection() {
                     <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-2">
                       {service.title}
                     </h3>
-                    <p className="text-secondary font-semibold mb-4">
+                    <p className="text-primary font-semibold mb-4">
                       {service.subtitle}
                     </p>
                     <p className="text-muted-foreground mb-6 leading-relaxed">
@@ -153,7 +153,7 @@ export function ServicesSection() {
                     <div className="space-y-4">
                       {service.features.map((feature) => (
                         <div key={feature.title} className="flex gap-3">
-                          <ChevronRight className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
+                          <ChevronRight className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                           <div>
                             <h4 className="font-semibold text-foreground">
                               {feature.title}
@@ -185,7 +185,7 @@ export function ServicesSection() {
 
           <div className="relative">
             {/* Connection line */}
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-secondary/30 hidden md:block" />
+            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-primary/30 hidden md:block" />
 
             <div className="space-y-6">
               {steps.map((step, index) => (
@@ -195,8 +195,8 @@ export function ServicesSection() {
                 >
                   {/* Step number */}
                   <div className="relative z-10 flex-shrink-0">
-                    <div className="w-16 h-16 rounded-full bg-gradient-gold flex items-center justify-center shadow-gold">
-                      <span className="font-display text-2xl font-bold text-primary">
+                    <div className="w-16 h-16 rounded-full bg-gradient-teal flex items-center justify-center shadow-teal">
+                      <span className="font-display text-2xl font-bold text-primary-foreground">
                         {step.number}
                       </span>
                     </div>
