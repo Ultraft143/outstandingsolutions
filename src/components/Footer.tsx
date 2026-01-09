@@ -1,3 +1,5 @@
+import logoWhite from "@/assets/logo-white.png";
+
 const footerLinks = [
   {
     title: "Navegação",
@@ -38,22 +40,19 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-primary text-primary-foreground">
+    <footer className="bg-secondary text-secondary-foreground">
       <div className="container mx-auto px-4 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-gradient-gold flex items-center justify-center">
-                <span className="font-display text-xl font-bold text-primary">
-                  O
-                </span>
-              </div>
-              <span className="font-display text-xl font-semibold">
-                Outstanding
-              </span>
+            <div className="mb-4">
+              <img 
+                src={logoWhite} 
+                alt="Outstanding Solutions" 
+                className="h-12 w-auto brightness-0 invert"
+              />
             </div>
-            <p className="text-primary-foreground/70 text-sm leading-relaxed">
+            <p className="text-secondary-foreground/70 text-sm leading-relaxed">
               O seu Gabinete de Consultoria Financeira B2B. Transformamos
               números em alavancas de crescimento e estabilidade.
             </p>
@@ -62,7 +61,7 @@ export function Footer() {
           {/* Links */}
           {footerLinks.map((section) => (
             <div key={section.title}>
-              <h4 className="font-semibold mb-4 text-secondary">
+              <h4 className="font-semibold mb-4 text-primary">
                 {section.title}
               </h4>
               <ul className="space-y-2">
@@ -71,14 +70,14 @@ export function Footer() {
                     {link.href.startsWith("#") ? (
                       <button
                         onClick={() => scrollToSection(link.href)}
-                        className="text-primary-foreground/70 hover:text-secondary transition-colors text-sm"
+                        className="text-secondary-foreground/70 hover:text-primary transition-colors text-sm"
                       >
                         {link.label}
                       </button>
                     ) : (
                       <a
                         href={link.href}
-                        className="text-primary-foreground/70 hover:text-secondary transition-colors text-sm"
+                        className="text-secondary-foreground/70 hover:text-primary transition-colors text-sm"
                       >
                         {link.label}
                       </a>
@@ -91,22 +90,22 @@ export function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="mt-12 pt-8 border-t border-primary-foreground/10">
+        <div className="mt-12 pt-8 border-t border-secondary-foreground/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-primary-foreground/60 text-sm">
+            <p className="text-secondary-foreground/60 text-sm">
               © {new Date().getFullYear()} Outstanding Solutions. Todos os
               direitos reservados.
             </p>
             <div className="flex gap-6">
               <a
                 href="#"
-                className="text-primary-foreground/60 hover:text-secondary text-sm transition-colors"
+                className="text-secondary-foreground/60 hover:text-primary text-sm transition-colors"
               >
                 Política de Privacidade
               </a>
               <a
                 href="#"
-                className="text-primary-foreground/60 hover:text-secondary text-sm transition-colors"
+                className="text-secondary-foreground/60 hover:text-primary text-sm transition-colors"
               >
                 Termos e Condições
               </a>

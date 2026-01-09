@@ -30,12 +30,12 @@ export function TestimonialsSection() {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="max-w-4xl mx-auto text-center mb-16">
-          <span className="inline-block text-secondary font-semibold text-sm uppercase tracking-wider mb-4">
+          <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">
             O Que Dizem De Nós
           </span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
             A confiança dos nossos clientes{" "}
-            <span className="text-gradient-gold">é o nosso maior ativo.</span>
+            <span className="text-gradient-teal">é o nosso maior ativo.</span>
           </h2>
         </div>
 
@@ -47,14 +47,14 @@ export function TestimonialsSection() {
               className="bg-card rounded-2xl p-8 shadow-card hover:shadow-elevated transition-shadow duration-300 relative"
             >
               {/* Quote icon */}
-              <Quote className="absolute top-6 right-6 w-10 h-10 text-secondary/20" />
+              <Quote className="absolute top-6 right-6 w-10 h-10 text-primary/20" />
 
               {/* Stars */}
               <div className="flex gap-1 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className="w-4 h-4 fill-secondary text-secondary"
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className="w-4 h-4 fill-primary text-primary"
                   />
                 ))}
               </div>

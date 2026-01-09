@@ -16,10 +16,10 @@ const buttonVariants = cva(
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
         // Outstanding custom variants
-        hero: "bg-gradient-gold text-primary-foreground font-semibold shadow-gold hover:shadow-elevated hover:scale-105 active:scale-100",
-        heroOutline: "border-2 border-gold bg-transparent text-gold hover:bg-gold hover:text-primary font-semibold",
-        navy: "bg-primary text-primary-foreground hover:bg-navy-light shadow-card hover:shadow-elevated",
-        gold: "bg-secondary text-secondary-foreground hover:bg-gold-light shadow-gold hover:shadow-elevated",
+        hero: "bg-gradient-teal text-primary-foreground font-semibold shadow-teal hover:shadow-elevated hover:scale-105 active:scale-100",
+        heroOutline: "border-2 border-primary bg-transparent text-primary hover:bg-primary hover:text-primary-foreground font-semibold",
+        navy: "bg-secondary text-secondary-foreground hover:bg-navy-light shadow-card hover:shadow-elevated",
+        teal: "bg-primary text-primary-foreground hover:bg-teal-light shadow-teal hover:shadow-elevated",
       },
       size: {
         default: "h-10 px-4 py-2",

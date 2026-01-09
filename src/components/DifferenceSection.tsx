@@ -48,18 +48,18 @@ export function DifferenceSection() {
   return (
     <section id="diferenca" className="py-24 bg-gradient-hero relative overflow-hidden">
       {/* Decorative elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-secondary/10 rounded-full blur-3xl" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
 
       <div className="container mx-auto px-4 relative">
         {/* Header */}
         <div className="max-w-4xl mx-auto text-center mb-20">
-          <span className="inline-block text-secondary font-semibold text-sm uppercase tracking-wider mb-4">
+          <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">
             Onde Fazemos a Diferença
           </span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-6">
             Um parceiro estratégico B2B,{" "}
-            <span className="text-gradient-gold">
+            <span className="text-gradient-teal">
               com expertise para mover o seu negócio.
             </span>
           </h2>
@@ -83,11 +83,11 @@ export function DifferenceSection() {
                 className="bg-card/10 backdrop-blur-sm border border-primary-foreground/20 rounded-2xl p-6 hover:bg-card/20 transition-all duration-300 group"
               >
                 <div className="flex items-start gap-4 mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-gold flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                    <item.icon className="w-6 h-6 text-primary" />
+                  <div className="w-12 h-12 rounded-xl bg-gradient-teal flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                    <item.icon className="w-6 h-6 text-primary-foreground" />
                   </div>
                   <div>
-                    <span className="text-secondary text-sm font-semibold">
+                    <span className="text-primary text-sm font-semibold">
                       {item.number}
                     </span>
                     <h4 className="font-display text-xl font-semibold text-primary-foreground">
@@ -107,7 +107,7 @@ export function DifferenceSection() {
                   </div>
                   <div>
                     <p className="text-primary-foreground/90 text-sm">
-                      <span className="font-semibold text-secondary">
+                      <span className="font-semibold text-primary">
                         A Nossa Proposta:
                       </span>{" "}
                       {item.solution}
@@ -131,7 +131,7 @@ export function DifferenceSection() {
                 key={sector.name}
                 className="flex items-center gap-3 bg-card/10 backdrop-blur-sm border border-primary-foreground/20 rounded-full px-6 py-3 hover:bg-card/20 transition-colors"
               >
-                <sector.icon className="w-5 h-5 text-secondary" />
+                <sector.icon className="w-5 h-5 text-primary" />
                 <span className="font-semibold text-primary-foreground">
                   {sector.name}
                 </span>

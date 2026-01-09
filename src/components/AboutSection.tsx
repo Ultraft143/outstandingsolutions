@@ -28,12 +28,12 @@ export function AboutSection() {
 
       <div className="container mx-auto px-4 relative">
         <div className="max-w-4xl mx-auto text-center mb-16">
-          <span className="inline-block text-secondary font-semibold text-sm uppercase tracking-wider mb-4">
+          <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">
             Quem Somos
           </span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
             Outstanding Solutions: Mais do que Consultoras,{" "}
-            <span className="text-gradient-gold">Somos Parceiras de Confiança.</span>
+            <span className="text-gradient-teal">Somos Parceiras de Confiança.</span>
           </h2>
         </div>
 
@@ -66,8 +66,8 @@ export function AboutSection() {
                 key={promise.title}
                 className="group text-center"
               >
-                <div className="w-16 h-16 rounded-2xl bg-gradient-gold flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform duration-300 shadow-gold">
-                  <promise.icon className="w-8 h-8 text-primary" />
+                <div className="w-16 h-16 rounded-2xl bg-gradient-teal flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform duration-300 shadow-teal">
+                  <promise.icon className="w-8 h-8 text-primary-foreground" />
                 </div>
                 <h4 className="font-display text-xl font-semibold text-foreground mb-3">
                   {promise.title}

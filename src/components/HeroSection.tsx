@@ -54,7 +54,7 @@ export function HeroSection() {
         <div className="max-w-4xl mx-auto text-center mb-16">
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-6 leading-tight animate-fade-in">
             Otimize a Sua Gestão Financeira.{" "}
-            <span className="text-gradient-gold">
+            <span className="text-gradient-teal">
               Garanta um Futuro Sólido e Sustentado.
             </span>
           </h1>
@@ -67,7 +67,7 @@ export function HeroSection() {
 
         {/* Challenges Section */}
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-center text-xl md:text-2xl font-semibold text-secondary mb-10 animate-slide-up" style={{ animationDelay: "0.3s" }}>
+          <h2 className="text-center text-xl md:text-2xl font-semibold text-primary mb-10 animate-slide-up" style={{ animationDelay: "0.3s" }}>
             A sua empresa enfrenta estes desafios?
           </h2>
           
@@ -78,8 +78,8 @@ export function HeroSection() {
                 className="bg-card/10 backdrop-blur-sm border border-primary-foreground/20 rounded-xl p-6 hover:bg-card/20 transition-all duration-300 hover:scale-105 animate-slide-up"
                 style={{ animationDelay: `${0.4 + index * 0.1}s` }}
               >
-                <div className="w-12 h-12 rounded-lg bg-gradient-gold flex items-center justify-center mb-4">
-                  <challenge.icon className="w-6 h-6 text-primary" />
+                <div className="w-12 h-12 rounded-lg bg-gradient-teal flex items-center justify-center mb-4">
+                  <challenge.icon className="w-6 h-6 text-primary-foreground" />
                 </div>
                 <h3 className="font-display text-lg font-semibold text-primary-foreground mb-3">
                   {challenge.title}
@@ -107,7 +107,7 @@ export function HeroSection() {
         {/* Scroll indicator */}
         <button
           onClick={scrollToNext}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-primary-foreground/60 hover:text-secondary transition-colors animate-bounce"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-primary-foreground/60 hover:text-primary transition-colors animate-bounce"
         >
           <ChevronDown size={32} />
         </button>
