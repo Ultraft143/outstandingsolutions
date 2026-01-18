@@ -13,7 +13,7 @@ export default function TermsConditions() {
             <img
               src={logoWhite}
               alt="Outstanding Solutions"
-              className="h-20 md:h-24 lg:h-28 w-auto -my-4 brightness-0 invert"
+              className="h-14 md:h-16 lg:h-18 w-auto -my-2 brightness-0 invert"
             />
           </Link>
         </div>
