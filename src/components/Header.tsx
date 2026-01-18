@@ -48,7 +48,7 @@ export function Header() {
           <img 
             src={logoHorizontal} 
             alt="Outstanding Solutions - Consultoria Financeira" 
-            className="h-10 md:h-12 w-auto"
+            className="h-12 md:h-14 lg:h-16 w-auto"
           />
         </button>
 
@@ -59,7 +59,7 @@ export function Header() {
               key={link.href}
               onClick={() => scrollToSection(link.href)}
               className={`text-sm font-medium transition-colors duration-300 hover:text-primary ${
-                isScrolled ? "text-foreground" : "text-secondary"
+                isScrolled ? "text-foreground" : "text-white"
               }`}
             >
               {link.label}
@@ -84,9 +84,9 @@ export function Header() {
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? (
-            <X className={isScrolled ? "text-foreground" : "text-secondary"} size={24} />
+            <X className={isScrolled ? "text-foreground" : "text-white"} size={28} />
           ) : (
-            <Menu className={isScrolled ? "text-foreground" : "text-secondary"} size={24} />
+            <Menu className={isScrolled ? "text-foreground" : "text-white"} size={28} />
           )}
         </button>
       </div>
