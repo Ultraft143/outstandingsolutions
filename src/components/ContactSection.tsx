@@ -220,7 +220,7 @@ export function ContactSection() {
               {/* Google Maps */}
               <div className="mt-8 rounded-xl overflow-hidden">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3102.5!2d-9.2585!3d39.0917!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd18e7d9c9c9c9c9%3A0x0!2sRua%20Dr.%20Gomes%20Leal%203A%2C%20Torres%20Vedras!5e0!3m2!1spt-PT!2spt!4v1700000000000!5m2!1spt-PT!2spt"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3102.8!2d-9.2585!3d39.0917!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd18e7e8f8f8f8f8%3A0x1234567890abcdef!2sTorres%20Vedras!5e0!3m2!1spt-PT!2spt!4v1700000000000"
                   width="100%"
                   height="200"
                   style={{ border: 0 }}
@@ -230,6 +230,14 @@ export function ContactSection() {
                   title="Localização Outstanding Solutions"
                   className="rounded-xl"
                 ></iframe>
+                <a 
+                  href="https://www.google.com/maps/search/?api=1&query=Rua+Dr.+Gomes+Leal+3A,+Torres+Vedras,+Portugal"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block mt-3 text-sm text-primary hover:underline text-center"
+                >
+                  Ver mapa maior
+                </a>
               </div>
             </div>
           </div>
