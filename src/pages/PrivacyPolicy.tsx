@@ -13,7 +13,7 @@ export default function PrivacyPolicy() {
             <img
               src={logoHorizontal}
               alt="Outstanding Solutions"
-              className="h-12 w-auto"
+              className="h-20 w-auto"
             />
           </Link>
         </div>
