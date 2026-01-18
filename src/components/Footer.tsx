@@ -45,7 +45,7 @@ export function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <div className="mb-4">
+            <div className="mb-4 -mt-2">
               <img 
                 src={logoWhite} 
                 alt="Outstanding Solutions" 
