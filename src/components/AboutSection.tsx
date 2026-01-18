@@ -1,4 +1,5 @@
 import { Lightbulb, Shield, Target } from "lucide-react";
+import { AnimatedSection } from "@/components/AnimatedSection";
 
 const promises = [
   {
@@ -27,7 +28,7 @@ export function AboutSection() {
       <div className="absolute -right-32 top-1/2 -translate-y-1/2 w-64 h-64 bg-secondary/10 rounded-full blur-3xl" />
 
       <div className="container mx-auto px-4 relative">
-        <div className="max-w-4xl mx-auto text-center mb-16">
+        <AnimatedSection className="max-w-4xl mx-auto text-center mb-16">
           <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">
             Quem Somos
           </span>
@@ -35,9 +36,9 @@ export function AboutSection() {
             Outstanding Solutions: Mais do que Consultoras,{" "}
             <span className="text-gradient-teal">Somos Parceiras de Confiança.</span>
           </h2>
-        </div>
+        </AnimatedSection>
 
-        <div className="max-w-3xl mx-auto mb-16">
+        <AnimatedSection className="max-w-3xl mx-auto mb-16" delay={100}>
           <div className="bg-card rounded-2xl p-8 shadow-card">
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
               A Outstanding Solutions move-se pela vontade de trabalhar lado a
@@ -53,29 +54,34 @@ export function AboutSection() {
               garante a estabilidade e impulsiona o crescimento do seu negócio.
             </p>
           </div>
-        </div>
+        </AnimatedSection>
 
         {/* Promises */}
         <div className="max-w-5xl mx-auto">
-          <h3 className="text-center font-display text-2xl font-semibold text-foreground mb-10">
-            Na Outstanding Solutions, prometemos:
-          </h3>
+          <AnimatedSection className="text-center mb-10" delay={200}>
+            <h3 className="font-display text-2xl font-semibold text-foreground">
+              Na Outstanding Solutions, prometemos:
+            </h3>
+          </AnimatedSection>
           <div className="grid md:grid-cols-3 gap-8">
             {promises.map((promise, index) => (
-              <div
+              <AnimatedSection
                 key={promise.title}
-                className="group text-center"
+                animation="fade-up"
+                delay={300 + index * 100}
               >
-                <div className="w-16 h-16 rounded-2xl bg-gradient-teal flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform duration-300 shadow-teal">
-                  <promise.icon className="w-8 h-8 text-primary-foreground" />
+                <div className="group text-center">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-teal flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform duration-300 shadow-teal">
+                    <promise.icon className="w-8 h-8 text-primary-foreground" />
+                  </div>
+                  <h4 className="font-display text-xl font-semibold text-foreground mb-3">
+                    {promise.title}
+                  </h4>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {promise.description}
+                  </p>
                 </div>
-                <h4 className="font-display text-xl font-semibold text-foreground mb-3">
-                  {promise.title}
-                </h4>
-                <p className="text-muted-foreground leading-relaxed">
-                  {promise.description}
-                </p>
-              </div>
+              </AnimatedSection>
             ))}
           </div>
         </div>

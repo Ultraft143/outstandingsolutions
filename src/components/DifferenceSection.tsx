@@ -1,4 +1,5 @@
 import { BarChart3, TrendingDown, Activity, PiggyBank, Factory, Store, Heart } from "lucide-react";
+import { AnimatedSection } from "@/components/AnimatedSection";
 
 const needs = [
   {
@@ -53,7 +54,7 @@ export function DifferenceSection() {
 
       <div className="container mx-auto px-4 relative">
         {/* Header */}
-        <div className="max-w-4xl mx-auto text-center mb-20">
+        <AnimatedSection className="max-w-4xl mx-auto text-center mb-20">
           <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">
             Onde Fazemos a Diferença
           </span>
@@ -68,65 +69,70 @@ export function DifferenceSection() {
             nosso e focamo-nos em acrescentar-lhe valor real para impulsionar o
             crescimento.
           </p>
-        </div>
+        </AnimatedSection>
 
         {/* Needs Grid */}
         <div className="max-w-6xl mx-auto mb-20">
-          <h3 className="text-center font-display text-2xl font-semibold text-primary-foreground mb-12">
-            Um gestor de sucesso precisa de:
-          </h3>
+          <AnimatedSection className="text-center mb-12" delay={100}>
+            <h3 className="font-display text-2xl font-semibold text-primary-foreground">
+              Um gestor de sucesso precisa de:
+            </h3>
+          </AnimatedSection>
 
           <div className="grid md:grid-cols-2 gap-6">
-            {needs.map((item) => (
-              <div
+            {needs.map((item, index) => (
+              <AnimatedSection
                 key={item.number}
-                className="bg-card/10 backdrop-blur-sm border border-primary-foreground/20 rounded-2xl p-6 hover:bg-card/20 transition-all duration-300 group"
+                animation="scale"
+                delay={200 + index * 100}
               >
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-teal flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                    <item.icon className="w-6 h-6 text-primary-foreground" />
+                <div className="bg-card/10 backdrop-blur-sm border border-primary-foreground/20 rounded-2xl p-6 hover:bg-card/20 transition-all duration-300 group h-full">
+                  <div className="flex items-start gap-4 mb-4">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-teal flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                      <item.icon className="w-6 h-6 text-primary-foreground" />
+                    </div>
+                    <div>
+                      <span className="text-primary text-sm font-semibold">
+                        {item.number}
+                      </span>
+                      <h4 className="font-display text-xl font-semibold text-primary-foreground">
+                        {item.need}
+                      </h4>
+                    </div>
                   </div>
-                  <div>
-                    <span className="text-primary text-sm font-semibold">
-                      {item.number}
-                    </span>
-                    <h4 className="font-display text-xl font-semibold text-primary-foreground">
-                      {item.need}
-                    </h4>
-                  </div>
-                </div>
 
-                <div className="space-y-4 pl-16">
-                  <div>
-                    <p className="text-primary-foreground/70 text-sm">
-                      <span className="font-semibold text-primary-foreground">
-                        O Desafio:
-                      </span>{" "}
-                      {item.problem}
-                    </p>
-                  </div>
-                  <div>
-                    <p className="text-primary-foreground/90 text-sm">
-                      <span className="font-semibold text-primary">
-                        A Nossa Proposta:
-                      </span>{" "}
-                      {item.solution}
-                    </p>
+                  <div className="space-y-4 pl-16">
+                    <div>
+                      <p className="text-primary-foreground/70 text-sm">
+                        <span className="font-semibold text-primary-foreground">
+                          O Desafio:
+                        </span>{" "}
+                        {item.problem}
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-primary-foreground/90 text-sm">
+                        <span className="font-semibold text-primary">
+                          A Nossa Proposta:
+                        </span>{" "}
+                        {item.solution}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </AnimatedSection>
             ))}
           </div>
         </div>
 
         {/* Sectors */}
-        <div className="max-w-4xl mx-auto text-center">
+        <AnimatedSection className="max-w-4xl mx-auto text-center" delay={600}>
           <p className="text-primary-foreground/80 mb-8">
             A nossa experiência abrange vários setores, garantindo que as nossas
             soluções são adaptáveis e personalizadas ao seu modelo de negócio:
           </p>
           <div className="flex flex-wrap justify-center gap-6">
-            {sectors.map((sector) => (
+            {sectors.map((sector, index) => (
               <div
                 key={sector.name}
                 className="flex items-center gap-3 bg-card/10 backdrop-blur-sm border border-primary-foreground/20 rounded-full px-6 py-3 hover:bg-card/20 transition-colors"
@@ -138,7 +144,7 @@ export function DifferenceSection() {
               </div>
             ))}
           </div>
-        </div>
+        </AnimatedSection>
       </div>
     </section>
   );

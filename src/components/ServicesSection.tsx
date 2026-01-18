@@ -1,4 +1,5 @@
 import { TrendingUp, Calculator, Users, ChevronRight } from "lucide-react";
+import { AnimatedSection } from "@/components/AnimatedSection";
 
 const services = [
   {
@@ -99,7 +100,7 @@ export function ServicesSection() {
     <section id="solucoes" className="py-24 bg-background">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="max-w-4xl mx-auto text-center mb-20">
+        <AnimatedSection className="max-w-4xl mx-auto text-center mb-20">
           <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">
             Soluções e Serviços
           </span>
@@ -112,76 +113,81 @@ export function ServicesSection() {
             serviços para satisfazer as suas necessidades específicas e libertar
             os seus recursos chave.
           </p>
-        </div>
+        </AnimatedSection>
 
         {/* Services Grid */}
         <div className="max-w-6xl mx-auto space-y-8 mb-24">
           {services.map((service, index) => (
-            <div
+            <AnimatedSection
               key={service.title}
-              className={`rounded-2xl overflow-hidden ${
-                index % 2 === 0 ? "bg-card" : "bg-cream"
-              } shadow-card hover:shadow-elevated transition-shadow duration-300`}
+              animation={index % 2 === 0 ? "fade-left" : "fade-right"}
+              delay={index * 100}
             >
-              <div className="p-8 md:p-10">
-                <div className="flex flex-col lg:flex-row lg:items-start gap-8">
-                  {/* Icon and number */}
-                  <div className="flex-shrink-0">
-                    <div className="flex items-center gap-4">
-                      <div className="w-16 h-16 rounded-2xl bg-gradient-hero flex items-center justify-center shadow-card">
-                        <service.icon className="w-8 h-8 text-primary-foreground" />
-                      </div>
-                      <span className="text-6xl font-display font-bold text-primary/30">
-                        {service.number}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="flex-grow">
-                    <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-2">
-                      {service.title}
-                    </h3>
-                    <p className="text-primary font-semibold mb-4">
-                      {service.subtitle}
-                    </p>
-                    <p className="text-muted-foreground mb-6 leading-relaxed">
-                      {service.description}
-                    </p>
-
-                    {/* Features */}
-                    <div className="space-y-4">
-                      {service.features.map((feature) => (
-                        <div key={feature.title} className="flex gap-3">
-                          <ChevronRight className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                          <div>
-                            <h4 className="font-semibold text-foreground">
-                              {feature.title}
-                            </h4>
-                            <p className="text-sm text-muted-foreground">
-                              {feature.text}
-                            </p>
-                          </div>
+              <div
+                className={`rounded-2xl overflow-hidden ${
+                  index % 2 === 0 ? "bg-card" : "bg-cream"
+                } shadow-card hover:shadow-elevated transition-shadow duration-300`}
+              >
+                <div className="p-8 md:p-10">
+                  <div className="flex flex-col lg:flex-row lg:items-start gap-8">
+                    {/* Icon and number */}
+                    <div className="flex-shrink-0">
+                      <div className="flex items-center gap-4">
+                        <div className="w-16 h-16 rounded-2xl bg-gradient-hero flex items-center justify-center shadow-card">
+                          <service.icon className="w-8 h-8 text-primary-foreground" />
                         </div>
-                      ))}
+                        <span className="text-6xl font-display font-bold text-primary/30">
+                          {service.number}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="flex-grow">
+                      <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-2">
+                        {service.title}
+                      </h3>
+                      <p className="text-primary font-semibold mb-4">
+                        {service.subtitle}
+                      </p>
+                      <p className="text-muted-foreground mb-6 leading-relaxed">
+                        {service.description}
+                      </p>
+
+                      {/* Features */}
+                      <div className="space-y-4">
+                        {service.features.map((feature) => (
+                          <div key={feature.title} className="flex gap-3">
+                            <ChevronRight className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                            <div>
+                              <h4 className="font-semibold text-foreground">
+                                {feature.title}
+                              </h4>
+                              <p className="text-sm text-muted-foreground">
+                                {feature.text}
+                              </p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </AnimatedSection>
           ))}
         </div>
 
         {/* Process Steps */}
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
+          <AnimatedSection className="text-center mb-12">
             <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-4">
               Como Iniciamos a Nossa Parceria Outstanding?
             </h3>
             <p className="text-lg text-muted-foreground">
               Um processo de sucesso: Transparência e Segurança em 5 Etapas
             </p>
-          </div>
+          </AnimatedSection>
 
           <div className="relative">
             {/* Connection line */}
@@ -189,29 +195,32 @@ export function ServicesSection() {
 
             <div className="space-y-6">
               {steps.map((step, index) => (
-                <div
+                <AnimatedSection
                   key={step.number}
-                  className="relative flex gap-6 md:gap-8"
+                  animation="fade-left"
+                  delay={index * 100}
                 >
-                  {/* Step number */}
-                  <div className="relative z-10 flex-shrink-0">
-                    <div className="w-16 h-16 rounded-full bg-gradient-teal flex items-center justify-center shadow-teal">
-                      <span className="font-display text-2xl font-bold text-primary-foreground">
-                        {step.number}
-                      </span>
+                  <div className="relative flex gap-6 md:gap-8">
+                    {/* Step number */}
+                    <div className="relative z-10 flex-shrink-0">
+                      <div className="w-16 h-16 rounded-full bg-gradient-teal flex items-center justify-center shadow-teal">
+                        <span className="font-display text-2xl font-bold text-primary-foreground">
+                          {step.number}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="flex-grow pb-6">
+                      <h4 className="font-display text-xl font-semibold text-foreground mb-2">
+                        {step.title}
+                      </h4>
+                      <p className="text-muted-foreground leading-relaxed">
+                        {step.description}
+                      </p>
                     </div>
                   </div>
-
-                  {/* Content */}
-                  <div className="flex-grow pb-6">
-                    <h4 className="font-display text-xl font-semibold text-foreground mb-2">
-                      {step.title}
-                    </h4>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {step.description}
-                    </p>
-                  </div>
-                </div>
+                </AnimatedSection>
               ))}
             </div>
           </div>

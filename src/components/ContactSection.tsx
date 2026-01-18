@@ -5,6 +5,7 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { AnimatedSection } from "@/components/AnimatedSection";
 
 const contactInfo = [
   {
@@ -78,7 +79,7 @@ export function ContactSection() {
     <section id="contacto" className="py-24 bg-background">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="max-w-4xl mx-auto text-center mb-16">
+        <AnimatedSection className="max-w-4xl mx-auto text-center mb-16">
           <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">
             Fale Connosco
           </span>
@@ -90,101 +91,103 @@ export function ContactSection() {
             traçar um caminho de crescimento. Não adie a estabilidade do seu
             negócio.
           </p>
-        </div>
+        </AnimatedSection>
 
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12">
           {/* Contact Form */}
-          <div className="bg-card rounded-2xl p-8 shadow-card">
-            <h3 className="font-display text-2xl font-semibold text-foreground mb-6">
-              Envie-nos uma mensagem
-            </h3>
+          <AnimatedSection animation="fade-left" delay={100}>
+            <div className="bg-card rounded-2xl p-8 shadow-card">
+              <h3 className="font-display text-2xl font-semibold text-foreground mb-6">
+                Envie-nos uma mensagem
+              </h3>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="nome">Nome *</Label>
-                  <Input
-                    id="nome"
-                    required
-                    value={formData.nome}
-                    onChange={(e) =>
-                      setFormData({ ...formData, nome: e.target.value })
-                    }
-                    placeholder="O seu nome"
-                  />
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="nome">Nome *</Label>
+                    <Input
+                      id="nome"
+                      required
+                      value={formData.nome}
+                      onChange={(e) =>
+                        setFormData({ ...formData, nome: e.target.value })
+                      }
+                      placeholder="O seu nome"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="empresa">Nome da Empresa *</Label>
+                    <Input
+                      id="empresa"
+                      required
+                      value={formData.empresa}
+                      onChange={(e) =>
+                        setFormData({ ...formData, empresa: e.target.value })
+                      }
+                      placeholder="Nome da sua empresa"
+                    />
+                  </div>
                 </div>
-                <div className="space-y-2">
-                  <Label htmlFor="empresa">Nome da Empresa *</Label>
-                  <Input
-                    id="empresa"
-                    required
-                    value={formData.empresa}
-                    onChange={(e) =>
-                      setFormData({ ...formData, empresa: e.target.value })
-                    }
-                    placeholder="Nome da sua empresa"
-                  />
-                </div>
-              </div>
 
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="email">Email Profissional *</Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={(e) =>
-                      setFormData({ ...formData, email: e.target.value })
-                    }
-                    placeholder="email@empresa.pt"
-                  />
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="email">Email Profissional *</Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      required
+                      value={formData.email}
+                      onChange={(e) =>
+                        setFormData({ ...formData, email: e.target.value })
+                      }
+                      placeholder="email@empresa.pt"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="telefone">Contacto Telefónico</Label>
+                    <Input
+                      id="telefone"
+                      type="tel"
+                      value={formData.telefone}
+                      onChange={(e) =>
+                        setFormData({ ...formData, telefone: e.target.value })
+                      }
+                      placeholder="+351 000 000 000"
+                    />
+                  </div>
                 </div>
-                <div className="space-y-2">
-                  <Label htmlFor="telefone">Contacto Telefónico</Label>
-                  <Input
-                    id="telefone"
-                    type="tel"
-                    value={formData.telefone}
-                    onChange={(e) =>
-                      setFormData({ ...formData, telefone: e.target.value })
-                    }
-                    placeholder="+351 000 000 000"
-                  />
-                </div>
-              </div>
 
-              <div className="space-y-3">
-                <Label>
-                  Qual o seu principal desafio financeiro atual? (Área de
-                  Interesse)
-                </Label>
-                <div className="grid sm:grid-cols-2 gap-3">
-                  {interests.map((interest) => (
-                    <label
-                      key={interest.id}
-                      className="flex items-center gap-3 p-3 rounded-lg border border-border hover:border-primary/50 cursor-pointer transition-colors"
-                    >
-                      <Checkbox
-                        checked={formData.interesses.includes(interest.id)}
-                        onCheckedChange={() => toggleInterest(interest.id)}
-                      />
-                      <span className="text-sm">{interest.label}</span>
-                    </label>
-                  ))}
+                <div className="space-y-3">
+                  <Label>
+                    Qual o seu principal desafio financeiro atual? (Área de
+                    Interesse)
+                  </Label>
+                  <div className="grid sm:grid-cols-2 gap-3">
+                    {interests.map((interest) => (
+                      <label
+                        key={interest.id}
+                        className="flex items-center gap-3 p-3 rounded-lg border border-border hover:border-primary/50 cursor-pointer transition-colors"
+                      >
+                        <Checkbox
+                          checked={formData.interesses.includes(interest.id)}
+                          onCheckedChange={() => toggleInterest(interest.id)}
+                        />
+                        <span className="text-sm">{interest.label}</span>
+                      </label>
+                    ))}
+                  </div>
                 </div>
-              </div>
 
-              <Button type="submit" variant="hero" size="lg" className="w-full">
-                <Send className="w-4 h-4" />
-                Enviar Mensagem
-              </Button>
-            </form>
-          </div>
+                <Button type="submit" variant="hero" size="lg" className="w-full">
+                  <Send className="w-4 h-4" />
+                  Enviar Mensagem
+                </Button>
+              </form>
+            </div>
+          </AnimatedSection>
 
           {/* Contact Info */}
-          <div className="flex flex-col justify-center">
+          <AnimatedSection animation="fade-right" delay={200} className="flex flex-col justify-center">
             <div className="bg-gradient-hero rounded-2xl p-8 text-primary-foreground">
               <h3 className="font-display text-2xl font-semibold mb-8">
                 Informações de Contacto
@@ -232,7 +235,7 @@ export function ContactSection() {
                 ></iframe>
               </div>
             </div>
-          </div>
+          </AnimatedSection>
         </div>
       </div>
     </section>
