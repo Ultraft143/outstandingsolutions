@@ -46,14 +46,14 @@ export function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <div className="mb-4 -mt-8">
+            <div className="mb-2 -mt-8">
               <img 
                 src={logoWhite} 
                 alt="Outstanding Solutions" 
                 className="h-24 w-auto brightness-0 invert"
               />
             </div>
-            <p className="text-secondary-foreground/70 text-sm leading-relaxed">
+            <p className="-mt-2 text-secondary-foreground/70 text-sm leading-relaxed">
               O seu Gabinete de Consultoria Financeira B2B. Transformamos
               números em alavancas de crescimento e estabilidade.
             </p>
