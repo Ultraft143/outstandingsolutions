@@ -1,19 +1,19 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logoHorizontal from "@/assets/logo-horizontal.png";
+import logoWhite from "@/assets/logo-white.png";
 
 export default function PrivacyPolicy() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-secondary py-6">
+      <header className="bg-secondary py-4">
         <div className="container mx-auto px-4">
           <Link to="/">
             <img
-              src={logoHorizontal}
+              src={logoWhite}
               alt="Outstanding Solutions"
-              className="h-20 w-auto"
+              className="h-16 -my-2 w-auto brightness-0 invert"
             />
           </Link>
         </div>
