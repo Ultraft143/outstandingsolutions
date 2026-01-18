@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import logoHorizontal from "@/assets/logo-horizontal.png";
+import logoWhite from "@/assets/logo-white.png";
 
 const navLinks = [
   { href: "#inicio", label: "Início" },
@@ -46,9 +47,9 @@ export function Header() {
           className="flex items-center"
         >
           <img 
-            src={logoHorizontal} 
+            src={isScrolled ? logoHorizontal : logoWhite} 
             alt="Outstanding Solutions - Consultoria Financeira" 
-            className="h-16 md:h-20 lg:h-24 w-auto"
+            className="h-16 md:h-20 lg:h-24 w-auto transition-all duration-300"
           />
         </button>
 
