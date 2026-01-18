@@ -7,13 +7,13 @@ export default function PrivacyPolicy() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-secondary py-0">
+      <header className="bg-secondary py-2">
         <div className="container mx-auto px-4">
           <Link to="/">
             <img
               src={logoWhite}
               alt="Outstanding Solutions"
-              className="h-20 md:h-24 lg:h-28 w-auto -my-6 brightness-0 invert"
+              className="h-20 md:h-24 lg:h-28 w-auto -mt-2 mb-[-2rem] brightness-0 invert relative z-10"
             />
           </Link>
         </div>
