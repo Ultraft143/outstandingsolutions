@@ -48,7 +48,7 @@ export function Header() {
           <img 
             src={logoHorizontal} 
             alt="Outstanding Solutions - Consultoria Financeira" 
-            className="h-12 md:h-14 lg:h-16 w-auto"
+            className="h-16 md:h-20 lg:h-24 w-auto"
           />
         </button>
 
