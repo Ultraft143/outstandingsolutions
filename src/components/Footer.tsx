@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import logoWhite from "@/assets/logo-white.png";
 
 const footerLinks = [
@@ -97,18 +98,18 @@ export function Footer() {
               direitos reservados.
             </p>
             <div className="flex gap-6">
-              <a
-                href="/politica-privacidade"
+              <Link
+                to="/politica-privacidade"
                 className="text-secondary-foreground/60 hover:text-primary text-sm transition-colors"
               >
                 Política de Privacidade
-              </a>
-              <a
-                href="/termos-condicoes"
+              </Link>
+              <Link
+                to="/termos-condicoes"
                 className="text-secondary-foreground/60 hover:text-primary text-sm transition-colors"
               >
                 Termos e Condições
-              </a>
+              </Link>
             </div>
           </div>
         </div>
