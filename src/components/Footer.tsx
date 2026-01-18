@@ -49,7 +49,7 @@ export function Footer() {
               <img 
                 src={logoWhite} 
                 alt="Outstanding Solutions" 
-                className="h-12 w-auto brightness-0 invert"
+                className="h-24 w-auto brightness-0 invert"
               />
             </div>
             <p className="text-secondary-foreground/70 text-sm leading-relaxed">
