@@ -13,7 +13,7 @@ export default function PrivacyPolicy() {
             <img
               src={logoWhite}
               alt="Outstanding Solutions"
-              className="h-20 md:h-24 lg:h-28 w-auto -mt-2 mb-[-2rem] brightness-0 invert relative z-10"
+              className="h-20 md:h-24 lg:h-28 w-auto -mt-2 mb-[-1rem] brightness-0 invert relative z-10"
             />
           </Link>
         </div>
