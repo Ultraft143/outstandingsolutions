@@ -1,4 +1,5 @@
 import { Star, Quote } from "lucide-react";
+import { AnimatedSection } from "@/components/AnimatedSection";
 
 const testimonials = [
   {
@@ -29,7 +30,7 @@ export function TestimonialsSection() {
     <section id="testemunhos" className="py-24 bg-cream">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="max-w-4xl mx-auto text-center mb-16">
+        <AnimatedSection className="max-w-4xl mx-auto text-center mb-16">
           <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">
             O Que Dizem De Nós
           </span>
@@ -37,55 +38,58 @@ export function TestimonialsSection() {
             A confiança dos nossos clientes{" "}
             <span className="text-gradient-teal">é o nosso maior ativo.</span>
           </h2>
-        </div>
+        </AnimatedSection>
 
         {/* Testimonials Grid */}
         <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <div
+            <AnimatedSection
               key={index}
-              className="bg-card rounded-2xl p-8 shadow-card hover:shadow-elevated transition-shadow duration-300 relative"
+              animation="fade-up"
+              delay={index * 150}
             >
-              {/* Quote icon */}
-              <Quote className="absolute top-6 right-6 w-10 h-10 text-primary/20" />
+              <div className="bg-card rounded-2xl p-8 shadow-card hover:shadow-elevated transition-shadow duration-300 relative h-full">
+                {/* Quote icon */}
+                <Quote className="absolute top-6 right-6 w-10 h-10 text-primary/20" />
 
-              {/* Stars */}
-              <div className="flex gap-1 mb-4">
+                {/* Stars */}
+                <div className="flex gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (
                     <Star
                       key={i}
                       className="w-4 h-4 fill-primary text-primary"
-                  />
-                ))}
-              </div>
-
-              {/* Quote */}
-              <p className="text-muted-foreground leading-relaxed mb-6 relative z-10">
-                "{testimonial.quote}"
-              </p>
-
-              {/* Author */}
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-gradient-hero flex items-center justify-center">
-                  <span className="font-display text-lg font-bold text-primary-foreground">
-                    {testimonial.author[0]}
-                  </span>
+                    />
+                  ))}
                 </div>
-                <div>
-                  <p className="font-semibold text-foreground">
-                    {testimonial.author}
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                    {testimonial.role}, {testimonial.company}
-                  </p>
+
+                {/* Quote */}
+                <p className="text-muted-foreground leading-relaxed mb-6 relative z-10">
+                  "{testimonial.quote}"
+                </p>
+
+                {/* Author */}
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full bg-gradient-hero flex items-center justify-center">
+                    <span className="font-display text-lg font-bold text-primary-foreground">
+                      {testimonial.author[0]}
+                    </span>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-foreground">
+                      {testimonial.author}
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      {testimonial.role}, {testimonial.company}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
+            </AnimatedSection>
           ))}
         </div>
 
         {/* Client logos placeholder */}
-        <div className="max-w-4xl mx-auto mt-16">
+        <AnimatedSection className="max-w-4xl mx-auto mt-16" delay={500}>
           <p className="text-center text-muted-foreground mb-8">
             Empresas que confiam em nós
           </p>
@@ -99,7 +103,7 @@ export function TestimonialsSection() {
               </div>
             ))}
           </div>
-        </div>
+        </AnimatedSection>
       </div>
     </section>
   );
