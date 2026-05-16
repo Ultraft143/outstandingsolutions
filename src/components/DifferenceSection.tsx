@@ -1,4 +1,12 @@
-import { BarChart3, TrendingDown, Activity, PiggyBank, Factory, Store, Heart } from "lucide-react";
+import {
+  BarChart3,
+  TrendingDown,
+  Activity,
+  PiggyBank,
+  Factory,
+  Store,
+  Heart,
+} from "lucide-react";
 import { AnimatedSection } from "@/components/AnimatedSection";
 
 const needs = [
@@ -6,7 +14,8 @@ const needs = [
     icon: BarChart3,
     number: "01",
     need: "Informação para a Decisão",
-    problem: "Precisar de informação financeira em tempo útil para decidir com segurança.",
+    problem:
+      "Precisar de informação financeira em tempo útil para decidir com segurança.",
     solution:
       "Entregamos reporting financeiro e análises preditivas que transformam dados em ferramentas de decisão estratégicas.",
   },
@@ -47,15 +56,33 @@ const sectors = [
 
 export function DifferenceSection() {
   return (
-    <section id="diferenca" className="py-24 bg-gradient-hero relative overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
+    <section
+      id="diferenca"
+      className="relative py-24 bg-gradient-hero overflow-hidden"
+    >
+      {/* Background image with overlay */}
+      <div className="absolute inset-0 opacity-15">
+        <img
+          src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1600&q=80"
+          alt=""
+          aria-hidden="true"
+          className="w-full h-full object-cover"
+          loading="lazy"
+        />
+      </div>
+      <div className="absolute inset-0 bg-gradient-hero opacity-90" />
+
+      {/* Decorative blobs */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-blob" />
+      <div
+        className="absolute bottom-0 left-0 w-80 h-80 bg-primary/15 rounded-full blur-3xl animate-blob"
+        style={{ animationDelay: "3s" }}
+      />
 
       <div className="container mx-auto px-4 relative">
         {/* Header */}
         <AnimatedSection className="max-w-4xl mx-auto text-center mb-20">
-          <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">
+          <span className="inline-block text-primary bg-primary/10 backdrop-blur-sm border border-primary/30 rounded-full px-4 py-1.5 font-semibold text-sm uppercase tracking-wider mb-4">
             Onde Fazemos a Diferença
           </span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-6">
@@ -84,33 +111,34 @@ export function DifferenceSection() {
               <AnimatedSection
                 key={item.number}
                 animation="scale"
-                delay={200 + index * 100}
+                delay={150 + index * 100}
               >
-                <div className="bg-card/10 backdrop-blur-sm border border-primary-foreground/20 rounded-2xl p-6 hover:bg-card/20 transition-all duration-300 group h-full">
-                  <div className="flex items-start gap-4 mb-4">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-teal flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                      <item.icon className="w-6 h-6 text-primary-foreground" />
-                    </div>
-                    <div>
-                      <span className="text-primary text-sm font-semibold">
-                        {item.number}
-                      </span>
-                      <h4 className="font-display text-xl font-semibold text-primary-foreground">
-                        {item.need}
-                      </h4>
-                    </div>
-                  </div>
+                <div className="group relative bg-card/10 backdrop-blur-sm border border-primary-foreground/20 rounded-2xl p-6 hover:bg-card/15 hover:border-primary/40 transition-all duration-300 h-full overflow-hidden hover-lift">
+                  {/* gradient hover overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                  <div className="space-y-4 pl-16">
-                    <div>
+                  <div className="relative">
+                    <div className="flex items-start gap-4 mb-4">
+                      <div className="w-14 h-14 rounded-2xl bg-gradient-teal flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-6 transition-transform shadow-teal">
+                        <item.icon className="w-7 h-7 text-primary-foreground" />
+                      </div>
+                      <div>
+                        <span className="text-primary text-sm font-semibold">
+                          {item.number}
+                        </span>
+                        <h4 className="font-display text-xl font-semibold text-primary-foreground">
+                          {item.need}
+                        </h4>
+                      </div>
+                    </div>
+
+                    <div className="space-y-3 pl-[4.5rem]">
                       <p className="text-primary-foreground/70 text-sm">
                         <span className="font-semibold text-primary-foreground">
                           O Desafio:
                         </span>{" "}
                         {item.problem}
                       </p>
-                    </div>
-                    <div>
                       <p className="text-primary-foreground/90 text-sm">
                         <span className="font-semibold text-primary">
                           A Nossa Proposta:
@@ -126,18 +154,18 @@ export function DifferenceSection() {
         </div>
 
         {/* Sectors */}
-        <AnimatedSection className="max-w-4xl mx-auto text-center" delay={600}>
-          <p className="text-primary-foreground/80 mb-8">
+        <AnimatedSection className="max-w-4xl mx-auto text-center" delay={500}>
+          <p className="text-primary-foreground/80 mb-8 text-lg">
             A nossa experiência abrange vários setores, garantindo que as nossas
             soluções são adaptáveis e personalizadas ao seu modelo de negócio:
           </p>
-          <div className="flex flex-wrap justify-center gap-6">
-            {sectors.map((sector, index) => (
+          <div className="flex flex-wrap justify-center gap-4">
+            {sectors.map((sector) => (
               <div
                 key={sector.name}
-                className="flex items-center gap-3 bg-card/10 backdrop-blur-sm border border-primary-foreground/20 rounded-full px-6 py-3 hover:bg-card/20 transition-colors"
+                className="group flex items-center gap-3 bg-card/10 backdrop-blur-sm border border-primary-foreground/20 rounded-full px-6 py-3 hover:bg-primary hover:border-primary transition-all duration-300 cursor-default hover:scale-105"
               >
-                <sector.icon className="w-5 h-5 text-primary" />
+                <sector.icon className="w-5 h-5 text-primary group-hover:text-primary-foreground transition-colors" />
                 <span className="font-semibold text-primary-foreground">
                   {sector.name}
                 </span>
