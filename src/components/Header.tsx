@@ -45,10 +45,11 @@ export function Header() {
         <button
           onClick={() => scrollToSection("#inicio")}
           className="flex items-center"
+          aria-label="Outstanding Solutions"
         >
-          <img 
-            src={isScrolled ? logoHorizontal : logoWhite} 
-            alt="Outstanding Solutions - Consultoria Financeira" 
+          <img
+            src={isScrolled ? logoHorizontal : logoWhite}
+            alt="Outstanding Solutions - Consultoria Financeira"
             className="h-20 md:h-24 lg:h-28 w-auto transition-all duration-300 -my-4"
           />
         </button>
@@ -59,11 +60,12 @@ export function Header() {
             <button
               key={link.href}
               onClick={() => scrollToSection(link.href)}
-              className={`text-sm font-medium transition-colors duration-300 hover:text-primary ${
-                isScrolled ? "text-foreground" : "text-white"
+              className={`relative text-sm font-medium transition-colors duration-300 hover:text-primary group ${
+                isScrolled ? "text-foreground/80" : "text-white"
               }`}
             >
               {link.label}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
             </button>
           ))}
         </nav>
@@ -83,6 +85,7 @@ export function Header() {
         <button
           className="lg:hidden p-2"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Abrir menu"
         >
           {isMobileMenuOpen ? (
             <X className={isScrolled ? "text-foreground" : "text-white"} size={28} />

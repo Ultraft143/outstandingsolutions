@@ -76,8 +76,10 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contacto" className="py-24 bg-background">
-      <div className="container mx-auto px-4">
+    <section id="contacto" className="py-24 bg-background relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-80 h-80 bg-secondary/5 rounded-full blur-3xl" />
+      <div className="container mx-auto px-4 relative">
         {/* Header */}
         <AnimatedSection className="max-w-4xl mx-auto text-center mb-16">
           <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">
