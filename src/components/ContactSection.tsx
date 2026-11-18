@@ -34,6 +34,11 @@ const contactInfo = [
   },
 ];
 
+// Form submissions are delivered by FormSubmit (https://formsubmit.co) to the
+// general mailbox. The first submission triggers an activation email that must
+// be confirmed from geral@outstanding.pt before messages start arriving.
+const CONTACT_FORM_ENDPOINT = "https://formsubmit.co/ajax/geral@outstanding.pt";
+
 const interests = [
   { id: "consultoria", label: "Consultoria Financeira" },
   { id: "contabilidade", label: "Contabilidade/Fiscalidade" },
@@ -51,19 +56,65 @@ export function ContactSection() {
     interesses: [] as string[],
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSending, setIsSending] = useState(false);
+  const [honeypot, setHoneypot] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Mensagem enviada!",
-      description: "Entraremos em contacto consigo brevemente.",
-    });
-    setFormData({
-      nome: "",
-      email: "",
-      telefone: "",
-      empresa: "",
-      interesses: [],
-    });
+    if (isSending) return;
+    setIsSending(true);
+
+    const interessesLabels = interests
+      .filter((i) => formData.interesses.includes(i.id))
+      .map((i) => i.label)
+      .join(", ");
+
+    try {
+      const response = await fetch(CONTACT_FORM_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          Nome: formData.nome,
+          Empresa: formData.empresa,
+          Email: formData.email,
+          Telefone: formData.telefone || "—",
+          "Área de Interesse": interessesLabels || "—",
+          _subject: `Novo contacto do site — ${formData.nome} (${formData.empresa})`,
+          _replyto: formData.email,
+          _template: "table",
+          _honey: honeypot,
+        }),
+      });
+
+      const result = await response.json().catch(() => null);
+      if (!response.ok || (result && String(result.success) === "false")) {
+        throw new Error(result?.message || `HTTP ${response.status}`);
+      }
+
+      toast({
+        title: "Mensagem enviada!",
+        description: "Entraremos em contacto consigo brevemente.",
+      });
+      setFormData({
+        nome: "",
+        email: "",
+        telefone: "",
+        empresa: "",
+        interesses: [],
+      });
+    } catch {
+      toast({
+        variant: "destructive",
+        title: "Não foi possível enviar a mensagem",
+        description:
+          "Por favor tente novamente ou contacte-nos diretamente para geral@outstanding.pt.",
+      });
+    } finally {
+      setIsSending(false);
+    }
   };
 
   const toggleInterest = (id: string) => {
@@ -180,9 +231,27 @@ export function ContactSection() {
                   </div>
                 </div>
 
-                <Button type="submit" variant="hero" size="lg" className="w-full">
+                {/* Honeypot anti-spam field — hidden from real users */}
+                <input
+                  type="text"
+                  name="_honey"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  className="hidden"
+                  value={honeypot}
+                  onChange={(e) => setHoneypot(e.target.value)}
+                />
+
+                <Button
+                  type="submit"
+                  variant="hero"
+                  size="lg"
+                  className="w-full"
+                  disabled={isSending}
+                >
                   <Send className="w-4 h-4" />
-                  Enviar Mensagem
+                  {isSending ? "A enviar..." : "Enviar Mensagem"}
                 </Button>
               </form>
             </div>

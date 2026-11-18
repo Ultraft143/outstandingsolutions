@@ -1,16 +1,16 @@
 import { useInView } from "@/hooks/useInView";
 import { useCountUp } from "@/hooks/useCountUp";
-import { TrendingUp, Users, Award, Briefcase } from "lucide-react";
+import { TrendingUp, Users, Briefcase } from "lucide-react";
 
 const stats = [
-  { icon: Briefcase, value: 15, suffix: "+", label: "Anos de experiência" },
-  { icon: Users, value: 80, suffix: "+", label: "Clientes ativos" },
-  { icon: TrendingUp, value: 100, suffix: "%", label: "Foco no cliente" },
-  { icon: Award, value: 3, suffix: "", label: "Áreas de especialização" },
+  { icon: Briefcase, prefix: "+", value: 15, suffix: "", label: "Anos de Experiência" },
+  { icon: Users, prefix: "+", value: 75, suffix: "", label: "Clientes ativos" },
+  { icon: TrendingUp, prefix: "", value: 100, suffix: "%", label: "Foco no Cliente" },
 ];
 
 function StatItem({
   icon: Icon,
+  prefix,
   value,
   suffix,
   label,
@@ -18,6 +18,7 @@ function StatItem({
   delay,
 }: {
   icon: typeof Briefcase;
+  prefix: string;
   value: number;
   suffix: string;
   label: string;
@@ -39,8 +40,9 @@ function StatItem({
         <Icon className="w-7 h-7 text-primary-foreground" />
       </div>
       <div className="font-display text-4xl md:text-5xl font-bold text-foreground tabular-nums">
+        {prefix && <span className="text-gradient-teal">{prefix}</span>}
         {count}
-        <span className="text-gradient-teal">{suffix}</span>
+        {suffix && <span className="text-gradient-teal">{suffix}</span>}
       </div>
       <p className="text-sm text-muted-foreground mt-2 font-medium">{label}</p>
     </div>
@@ -54,11 +56,12 @@ export function StatsStrip() {
     <section ref={ref} className="relative py-16 bg-card border-y border-border overflow-hidden">
       <div className="absolute inset-0 bg-dots-pattern opacity-30" />
       <div className="container mx-auto px-4 relative">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto">
           {stats.map((stat, i) => (
             <StatItem
               key={stat.label}
               icon={stat.icon}
+              prefix={stat.prefix}
               value={stat.value}
               suffix={stat.suffix}
               label={stat.label}
