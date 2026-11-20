@@ -1,5 +1,8 @@
 import { TrendingUp, Calculator, Users, ChevronRight } from "lucide-react";
 import { AnimatedSection } from "@/components/AnimatedSection";
+import servicos1 from "@/assets/servicos-1.jpeg";
+import servicos2 from "@/assets/servicos-2.jpeg";
+import servicos3 from "@/assets/servicos-3.jpeg";
 
 const services = [
   {
@@ -9,8 +12,7 @@ const services = [
     subtitle: "Crescimento, Estabilidade, Futuro Sólido.",
     description:
       "Somos o seu verdadeiro gabinete de consultoria financeira. Focamo-nos em planeamento estratégico para otimizar o desempenho do seu negócio e garantir a sua estabilidade.",
-    image:
-      "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=900&q=80",
+    image: servicos1,
     features: [
       {
         title: "Apoio à Gestão",
@@ -33,8 +35,7 @@ const services = [
     subtitle: "Segurança, Transparência, Soluções Fora da Caixa.",
     description:
       "Vamos além do cumprimento de obrigações fiscais. Prestamos serviços de Contabilidade e Fiscalidade em todos os regimes e dimensões, atuando com transparência e rigor.",
-    image:
-      "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=900&q=80",
+    image: servicos2,
     features: [
       {
         title: "Otimização Fiscal",
@@ -53,8 +54,7 @@ const services = [
     subtitle: "Multidisciplinaridade, Compromisso, Otimização de Custos.",
     description:
       "O capital humano é o seu ativo mais valioso. Oferecemos uma solução multidisciplinar que integra as necessidades de Recursos Humanos com a estratégia financeira.",
-    image:
-      "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=900&q=80",
+    image: servicos3,
     features: [
       {
         title: "Processamento de Remunerações",
@@ -160,8 +160,6 @@ export function ServicesSection() {
                         <service.icon className="w-8 h-8 text-primary-foreground" />
                       </div>
                     </div>
-                    {/* Decorative ring */}
-                    <div className="absolute -z-10 -top-4 -left-4 w-32 h-32 border-2 border-primary/30 rounded-full" />
                   </div>
 
                   {/* Content */}

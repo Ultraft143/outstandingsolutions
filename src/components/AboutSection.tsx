@@ -1,5 +1,6 @@
 import { Lightbulb, Shield, Target } from "lucide-react";
 import { AnimatedSection } from "@/components/AnimatedSection";
+import aboutImage from "@/assets/quem-somos.jpeg";
 
 const promises = [
   {
@@ -41,35 +42,12 @@ export function AboutSection() {
             <div className="relative">
               <div className="relative rounded-3xl overflow-hidden shadow-elevated aspect-[4/3] group">
                 <img
-                  src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=900&q=80"
-                  alt="Equipa Outstanding Solutions em reunião colaborativa"
+                  src={aboutImage}
+                  alt="Equipa Outstanding Solutions a trabalhar em conjunto"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-secondary/40 via-transparent to-transparent" />
-              </div>
-
-              {/* Secondary smaller image */}
-              <div className="absolute -bottom-8 -right-4 md:-right-8 w-40 md:w-56 rounded-2xl overflow-hidden shadow-elevated border-4 border-cream hidden sm:block">
-                <img
-                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=400&q=80"
-                  alt="Análise financeira em equipa"
-                  className="w-full aspect-square object-cover"
-                  loading="lazy"
-                />
-              </div>
-
-              {/* Floating badge */}
-              <div className="absolute -top-4 -left-4 bg-card rounded-2xl shadow-card p-4 flex items-center gap-3 max-w-[200px]">
-                <div className="w-10 h-10 rounded-xl bg-gradient-teal flex items-center justify-center flex-shrink-0">
-                  <Target className="w-5 h-5 text-primary-foreground" />
-                </div>
-                <div>
-                  <p className="text-xs text-muted-foreground">Missão</p>
-                  <p className="font-semibold text-sm text-foreground">
-                    Parceiros de confiança
-                  </p>
-                </div>
               </div>
             </div>
           </AnimatedSection>
@@ -108,7 +86,7 @@ export function AboutSection() {
               As nossas promessas
             </span>
             <h3 className="font-display text-2xl md:text-3xl font-semibold text-foreground">
-              Na Outstanding Solutions, prometemos:
+              Na Outstanding Solutions:
             </h3>
           </AnimatedSection>
 

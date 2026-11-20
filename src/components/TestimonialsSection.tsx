@@ -4,30 +4,31 @@ import { AnimatedSection } from "@/components/AnimatedSection";
 const testimonials = [
   {
     quote:
-      "A Outstanding Solutions transformou a forma como gerimos as nossas finanças. O acompanhamento é excepcional e os relatórios são uma ferramenta essencial para as nossas decisões.",
-    author: "Maria Santos",
+      "A Outstanding tem tudo a ver com confiança e profissionalismo. Estão sempre disponíveis para ouvir as nossas necessidades, com uma capacidade de adaptabilidade essencial.",
+    author: "Miguel Rita",
     role: "CEO",
-    company: "Empresa Exemplo",
-    image:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80",
+    company: "Empathyslice",
   },
   {
     quote:
-      "A abordagem empática e profissional da equipa fez toda a diferença. Sentimos que são verdadeiros parceiros no crescimento do nosso negócio.",
-    author: "João Ferreira",
-    role: "Diretor Financeiro",
-    company: "Empresa Exemplo",
-    image:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80",
+      "A Outstanding Solutions é um parceiro estratégico fundamental. A sua competência, visão e empatia acrescentam valor real à nossa gestão e tomada de decisão.",
+    author: "Susana Mira",
+    role: "CEO",
+    company: "SMart Comunicação",
   },
   {
     quote:
-      "A otimização fiscal que nos proporcionaram resultou em poupanças significativas. Recomendo vivamente os seus serviços.",
-    author: "Ana Costa",
-    role: "Gestora",
-    company: "Empresa Exemplo",
-    image:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=200&q=80",
+      "A Outstanding é muito mais do que um prestador de serviços: é um parceiro de confiança que nos transmite total segurança e tranquilidade na gestão empresarial.",
+    author: "Cristina de Sousa",
+    role: "CEO",
+    company: "Fortune",
+  },
+  {
+    quote:
+      "Mais do que tratar da contabilidade, a Outstanding dá-me a segurança de saber que tenho alguém ao meu lado que conhece o meu negócio e me ajuda a decidir com confiança.",
+    author: "Marta Maçarico",
+    role: "CEO",
+    company: "Marta Maçarico - Atelier",
   },
 ];
 
@@ -50,14 +51,14 @@ export function TestimonialsSection() {
         </AnimatedSection>
 
         {/* Testimonials Grid */}
-        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
           {testimonials.map((testimonial, index) => (
             <AnimatedSection
-              key={index}
+              key={testimonial.author}
               animation="fade-up"
               delay={index * 150}
             >
-              <div className="group relative bg-card rounded-3xl p-8 shadow-card hover:shadow-elevated transition-all duration-500 h-full overflow-hidden hover-lift">
+              <div className="group relative bg-card rounded-3xl p-8 shadow-card hover:shadow-elevated transition-all duration-500 h-full overflow-hidden hover-lift flex flex-col">
                 {/* Gradient top bar */}
                 <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-teal transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
 
@@ -67,62 +68,28 @@ export function TestimonialsSection() {
                 {/* Stars */}
                 <div className="flex gap-1 mb-5">
                   {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-5 h-5 fill-primary text-primary"
-                      style={{
-                        animationDelay: `${i * 100}ms`,
-                      }}
-                    />
+                    <Star key={i} className="w-5 h-5 fill-primary text-primary" />
                   ))}
                 </div>
 
                 {/* Quote */}
-                <p className="text-foreground/80 leading-relaxed mb-8 relative z-10 italic">
+                <p className="text-foreground/80 leading-relaxed mb-8 relative z-10 italic flex-grow">
                   "{testimonial.quote}"
                 </p>
 
                 {/* Author */}
-                <div className="flex items-center gap-4 pt-6 border-t border-border">
-                  <div className="relative">
-                    <div className="absolute inset-0 rounded-full bg-gradient-teal blur-md opacity-50" />
-                    <img
-                      src={testimonial.image}
-                      alt={testimonial.author}
-                      className="relative w-14 h-14 rounded-full object-cover ring-2 ring-card"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-foreground">
-                      {testimonial.author}
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      {testimonial.role}, {testimonial.company}
-                    </p>
-                  </div>
+                <div className="pt-6 border-t border-border">
+                  <p className="font-semibold text-foreground">
+                    {testimonial.author}
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    {testimonial.role}, {testimonial.company}
+                  </p>
                 </div>
               </div>
             </AnimatedSection>
           ))}
         </div>
-
-        {/* Client logos placeholder */}
-        <AnimatedSection className="max-w-5xl mx-auto mt-20" delay={500}>
-          <p className="text-center text-muted-foreground mb-8 font-medium">
-            Empresas que confiam em nós
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-6 items-center">
-            {[1, 2, 3, 4, 5].map((i) => (
-              <div
-                key={i}
-                className="h-16 bg-card rounded-xl flex items-center justify-center text-muted-foreground text-sm font-medium border border-border hover:border-primary/40 hover:text-primary transition-all duration-300 hover:scale-105"
-              >
-                Logo Cliente
-              </div>
-            ))}
-          </div>
-        </AnimatedSection>
       </div>
     </section>
   );

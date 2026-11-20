@@ -1,4 +1,5 @@
 import { ChevronDown } from "lucide-react";
+import heroImage from "@/assets/inicio.jpeg";
 
 export function HeroSection() {
   const scrollToNext = () => {
@@ -16,8 +17,8 @@ export function HeroSection() {
       {/* Full-bleed impact image */}
       <div className="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1664575599618-8f6bd76fc670?auto=format&fit=crop&w=2400&q=85"
-          alt="Skyline de cidade financeira ao entardecer"
+          src={heroImage}
+          alt="Escritório da Outstanding Solutions com a equipa a trabalhar"
           className="w-full h-full object-cover scale-105 animate-fade-in"
           style={{ animationDuration: "1.5s" }}
           loading="eager"
@@ -29,12 +30,6 @@ export function HeroSection() {
       {/* Bottom-aligned minimal title — image dominates the viewport */}
       <div className="relative h-full container mx-auto px-4 flex flex-col justify-end pb-28 md:pb-32">
         <div className="max-w-3xl">
-          <span
-            className="inline-block text-primary text-xs md:text-sm font-semibold uppercase tracking-[0.3em] mb-4 animate-fade-in"
-            style={{ animationDelay: "0.5s", animationFillMode: "backwards" }}
-          >
-            Consultoria Financeira B2B
-          </span>
           <h1
             className="font-display text-3xl md:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight drop-shadow-lg animate-slide-up max-w-3xl"
             style={{ animationDelay: "0.7s", animationFillMode: "backwards" }}
