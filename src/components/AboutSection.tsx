@@ -7,18 +7,18 @@ const promises = [
     icon: Lightbulb,
     title: "Expertise e Multidisciplinaridade",
     description:
-      "Transformar desafios em soluções personalizadas e fora da caixa.",
+      "Transformamos desafios em soluções personalizadas e fora da caixa.",
   },
   {
     icon: Shield,
     title: "Transparência e Compromisso",
     description:
-      "Garantir um serviço com rigor, ética e total transparência em todas as interações.",
+      "Garantimos um serviço com rigor, ética e total transparência em todas as interações.",
   },
   {
     icon: Target,
     title: "Foco no Cliente",
-    description: "Considerar o seu sucesso como a nossa primeira meta.",
+    description: "Consideramos o seu sucesso como a nossa primeira meta.",
   },
 ];
 
@@ -85,11 +85,8 @@ export function AboutSection() {
         {/* Promises */}
         <div className="max-w-6xl mx-auto">
           <AnimatedSection className="text-center mb-12">
-            <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-3">
-              As nossas promessas
-            </span>
             <h3 className="font-display text-2xl md:text-3xl font-semibold text-foreground">
-              Na Outstanding Solutions:
+              As nossas promessas
             </h3>
           </AnimatedSection>
 

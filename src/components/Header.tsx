@@ -5,7 +5,6 @@ import logoHorizontal from "@/assets/logo-horizontal.png";
 import logoWhite from "@/assets/logo-white.png";
 
 const navLinks = [
-  { href: "#inicio", label: "Início" },
   { href: "#quem-somos", label: "Quem Somos" },
   { href: "#solucoes", label: "Soluções e Serviços" },
   { href: "#diferenca", label: "Onde Fazemos a Diferença" },
@@ -47,13 +46,30 @@ export function Header() {
           className="flex items-center"
           aria-label="Outstanding Solutions"
         >
-          <img
-            src={isScrolled ? logoHorizontal : logoWhite}
-            alt="Outstanding Solutions - Consultoria Financeira"
-            width={1920}
-            height={1280}
-            className="h-20 md:h-24 lg:h-28 w-auto transition-all duration-300 -my-4"
-          />
+          {/* Both logos are always in the DOM (and downloaded on page load) and
+              cross-fade on scroll. Swapping a single <img> src made the browser
+              show the alt text while the second logo was still downloading. */}
+          <span className="relative block -my-4">
+            <img
+              src={logoWhite}
+              alt="Outstanding Solutions - Consultoria Financeira"
+              width={1920}
+              height={1280}
+              className={`h-20 md:h-24 lg:h-28 w-auto transition-opacity duration-300 ${
+                isScrolled ? "opacity-0" : "opacity-100"
+              }`}
+            />
+            <img
+              src={logoHorizontal}
+              alt=""
+              aria-hidden="true"
+              width={1920}
+              height={1280}
+              className={`absolute inset-0 h-20 md:h-24 lg:h-28 w-auto transition-opacity duration-300 ${
+                isScrolled ? "opacity-100" : "opacity-0"
+              }`}
+            />
+          </span>
         </button>
 
         {/* Desktop Navigation */}

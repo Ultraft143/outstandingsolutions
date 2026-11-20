@@ -58,7 +58,7 @@ export function ChallengesSection() {
             <span className="text-gradient-teal">estes desafios?</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Somos o seu Gabinete de Consultoria Financeira B2B. Através da nossa
+            Somos o seu Gabinete de Consultoria Financeira. Através da nossa
             abordagem próxima e empática, transformamos números em alavancas de
             crescimento e estabilidade.
           </p>

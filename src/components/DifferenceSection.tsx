@@ -16,7 +16,7 @@ const needs = [
     number: "01",
     need: "Informação para a Decisão",
     problem:
-      "Precisar de informação financeira em tempo útil para decidir com segurança.",
+      "Precisa de informação financeira em tempo útil para decidir com segurança.",
     solution:
       "Entregamos reporting financeiro e análises preditivas que transformam dados em ferramentas de decisão estratégicas.",
   },
@@ -34,7 +34,7 @@ const needs = [
     number: "03",
     need: "Medição de Desempenho",
     problem:
-      "Exigir informação relevante para acompanhar o seu negócio e medir o desempenho com indicadores-chave (KPIs).",
+      "Acesso a informação relevante para acompanhar o seu negócio e medir o desempenho com indicadores-chave (KPIs).",
     solution:
       "Utilizamos criatividade e multidisciplinaridade para definir os indicadores mais relevantes, dando-lhe uma visão clara e confiável do estado do seu negócio.",
   },
@@ -43,7 +43,7 @@ const needs = [
     number: "04",
     need: "Rentabilidade Real",
     problem:
-      "Ter conhecimento real da rentabilidade do seu negócio, centros de custo, produto e do cash flow gerado.",
+      "Conhecimento real da rentabilidade do seu negócio, centros de custo, produto e do cash flow gerado.",
     solution:
       "Aprofundamos a análise para lhe fornecer um retrato exato da rentabilidade, permitindo-lhe focar os seus recursos no que gera o seu crescimento.",
   },
@@ -92,13 +92,12 @@ export function DifferenceSection() {
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-6">
             Um parceiro estratégico B2B,{" "}
             <span className="text-gradient-teal">
-              com expertise para mover o seu negócio.
+              com experiência para alavancar no seu negócio.
             </span>
           </h2>
           <p className="text-xl text-primary-foreground/80">
-            Na Outstanding Solutions, pensamos o seu negócio como se fosse o
-            nosso e focamo-nos em acrescentar-lhe valor real para impulsionar o
-            crescimento.
+            Na Outstanding Solutions, pensamos o seu negócio como um todo e
+            focamo-nos em acrescentar-lhe valor para impulsionar o crescimento.
           </p>
         </AnimatedSection>
 

@@ -173,7 +173,8 @@ export default function TermsConditions() {
       {/* Footer */}
       <footer className="bg-secondary py-8">
         <div className="container mx-auto px-4 text-center">
-          <p className="text-secondary-foreground/60 text-sm">
+          {/* suppressHydrationWarning: the pre-rendered year may lag the visitor's clock until the next build */}
+          <p className="text-secondary-foreground/60 text-sm" suppressHydrationWarning>
             © {new Date().getFullYear()} Outstanding Solutions. Todos os
             direitos reservados.
           </p>

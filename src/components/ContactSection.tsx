@@ -6,6 +6,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { AnimatedSection } from "@/components/AnimatedSection";
+import { Link } from "react-router-dom";
 
 const contactInfo = [
   {
@@ -112,7 +113,8 @@ export function ContactSection() {
         body: JSON.stringify({
           Nome: formData.nome,
           Empresa: formData.empresa,
-          Email: formData.email,
+          // FormSubmit sets Reply-To from a field named exactly "email" (with _replyto).
+          email: formData.email,
           Telefone: formData.telefone || "—",
           "Área de Interesse": interessesLabels || "—",
           _subject: `Novo contacto do site — ${formData.nome} (${formData.empresa})`,
@@ -162,14 +164,9 @@ export function ContactSection() {
           <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">
             Fale Connosco
           </span>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
             Está preparado para dar o próximo passo?
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Estamos disponíveis para construir a sua solução Outstanding e
-            traçar um caminho de crescimento. Não adie a estabilidade do seu
-            negócio.
-          </p>
         </AnimatedSection>
 
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12">
@@ -279,6 +276,20 @@ export function ContactSection() {
                   <Send className="w-4 h-4" />
                   {isSending ? "A enviar..." : "Enviar Mensagem"}
                 </Button>
+
+                {/* RGPD art. 13 — inform at the point of collection */}
+                <p className="text-xs text-muted-foreground leading-relaxed">
+                  Os dados que nos envia são usados apenas para responder ao seu
+                  pedido de contacto. Saiba como os tratamos e quais os seus
+                  direitos na nossa{" "}
+                  <Link
+                    to="/politica-privacidade/"
+                    className="text-primary underline hover:text-primary/80"
+                  >
+                    Política de Privacidade
+                  </Link>
+                  .
+                </p>
               </form>
             </div>
           </AnimatedSection>
