@@ -38,8 +38,8 @@ export function HeroSection() {
             className="font-display text-3xl md:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight drop-shadow-lg animate-slide-up max-w-3xl"
             style={{ animationDelay: "0.7s", animationFillMode: "backwards" }}
           >
-            Otimize a Sua Gestão Financeira.{" "}
-            <span className="text-gradient-teal">Garanta um Futuro Sólido.</span>
+            Otimizamos a sua Gestão Financeira,{" "}
+            <span className="text-gradient-teal">para Garantir um Futuro Sólido</span>
           </h1>
         </div>
       </div>

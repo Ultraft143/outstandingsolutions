@@ -46,19 +46,15 @@ export function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <div className="mb-2 -mt-8">
-              <img 
-                src={logoWhite} 
+            <div className="-mt-8">
+              <img
+                src={logoWhite}
                 alt="Outstanding Solutions"
                 width={1920}
                 height={1280}
                 className="h-24 w-auto brightness-0 invert"
               />
             </div>
-            <p className="-mt-2 text-secondary-foreground/70 text-sm leading-relaxed">
-              O seu Gabinete de Consultoria Financeira B2B. Transformamos
-              números em alavancas de crescimento e estabilidade.
-            </p>
           </div>
 
           {/* Links */}
@@ -95,7 +91,8 @@ export function Footer() {
         {/* Bottom */}
         <div className="mt-12 pt-8 border-t border-secondary-foreground/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-secondary-foreground/60 text-sm">
+            {/* suppressHydrationWarning: the pre-rendered year may lag the visitor's clock until the next build */}
+            <p className="text-secondary-foreground/60 text-sm" suppressHydrationWarning>
               © {new Date().getFullYear()} Outstanding Solutions. Todos os
               direitos reservados.
             </p>
