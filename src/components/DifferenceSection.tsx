@@ -90,7 +90,7 @@ export function DifferenceSection() {
             Onde Fazemos a Diferença
           </span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-6">
-            Um parceiro estratégico B2B,{" "}
+            Um parceiro estratégico,{" "}
             <span className="text-gradient-teal">
               com experiência para alavancar no seu negócio.
             </span>

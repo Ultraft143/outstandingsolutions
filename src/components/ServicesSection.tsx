@@ -8,7 +8,7 @@ const services = [
   {
     icon: TrendingUp,
     number: "01",
-    title: "Consultoria Financeira Estratégica B2B",
+    title: "Consultoria Financeira Estratégica",
     subtitle: "Crescimento, Estabilidade, Futuro Sólido.",
     description:
       "Somos o seu verdadeiro gabinete de consultoria financeira. Focamo-nos em planeamento estratégico para otimizar o desempenho do seu negócio e garantir a sua estabilidade.",
