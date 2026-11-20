@@ -12,27 +12,33 @@ export function HeroSection() {
   return (
     <section
       id="inicio"
-      className="relative h-screen min-h-[640px] overflow-hidden bg-secondary"
+      // Phones: the photo sits on top in 4:3 (so the whole office and team are
+      // visible) with the title below on the brand colour. Tablet/desktop: the
+      // photo fills the screen and the title overlays it.
+      className="relative overflow-hidden bg-secondary md:h-screen md:min-h-[640px]"
     >
-      {/* Full-bleed impact image */}
-      <div className="absolute inset-0">
+      {/* Office photo */}
+      <div className="relative aspect-[4/3] md:absolute md:inset-0 md:aspect-auto">
         <img
           src={heroImage}
           alt="Escritório da Outstanding Solutions com a equipa a trabalhar"
-          className="w-full h-full object-cover scale-105 animate-fade-in"
+          className="w-full h-full object-cover object-[38%_50%] md:object-center md:scale-105 animate-fade-in"
           style={{ animationDuration: "1.5s" }}
-          width={1600}
-          height={900}
+          width={2000}
+          height={1125}
           loading="eager"
           // Lowercase on purpose: React 18 doesn't know `fetchPriority` yet.
           {...{ fetchpriority: "high" }}
         />
-        {/* Subtle overlays — keep image dominant */}
-        <div className="absolute inset-0 bg-gradient-to-t from-secondary/85 via-secondary/10 to-secondary/30" />
+        {/* Phones: darken the top (white header logo sits on the light ceiling)
+            and blend the bottom into the title block. */}
+        <div className="absolute inset-0 bg-gradient-to-b from-secondary/70 via-transparent to-secondary/40 md:hidden" />
+        {/* Tablet/desktop: subtle overlay that keeps the image dominant */}
+        <div className="absolute inset-0 hidden md:block bg-gradient-to-t from-secondary/85 via-secondary/10 to-secondary/30" />
       </div>
 
-      {/* Bottom-aligned minimal title — image dominates the viewport */}
-      <div className="relative h-full container mx-auto px-4 flex flex-col justify-end pb-28 md:pb-32">
+      {/* Title — below the photo on phones, bottom-aligned over it from md up */}
+      <div className="relative container mx-auto px-4 pt-8 pb-28 md:h-full md:flex md:flex-col md:justify-end md:pt-0 md:pb-32">
         <div className="max-w-3xl">
           <h1
             className="font-display text-3xl md:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight drop-shadow-lg animate-slide-up max-w-3xl"

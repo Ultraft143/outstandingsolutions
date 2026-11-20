@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { Star, Quote } from "lucide-react";
+import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import {
   Carousel,
@@ -39,6 +39,9 @@ const testimonials = [
     company: "Marta Maçarico - Atelier",
   },
 ];
+
+const arrowClassName =
+  "group/arrow w-11 h-11 rounded-full bg-card text-primary border border-primary/25 shadow-card flex items-center justify-center transition-all duration-300 hover:bg-primary hover:text-primary-foreground hover:border-primary hover:shadow-teal hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-cream";
 
 /** Time each slide stays before the carousel advances on its own. */
 const AUTOPLAY_DELAY_MS = 5000;
@@ -146,24 +149,44 @@ export function TestimonialsSection() {
             </CarouselContent>
           </Carousel>
 
-          {/* Dots */}
+          {/* Controls: arrows on either side of the dots */}
           {snapCount > 1 && (
-            <div className="flex justify-center gap-2 mt-8">
-              {Array.from({ length: snapCount }).map((_, i) => (
-                <button
-                  key={i}
-                  type="button"
-                  onClick={() => api?.scrollTo(i)}
-                  aria-label={`Ver testemunho ${i + 1}`}
-                  aria-current={i === selected}
-                  className={cn(
-                    "h-2.5 rounded-full transition-all duration-300",
-                    i === selected
-                      ? "w-8 bg-primary"
-                      : "w-2.5 bg-primary/25 hover:bg-primary/50",
-                  )}
-                />
-              ))}
+            <div className="flex items-center justify-center gap-6 mt-8">
+              <button
+                type="button"
+                onClick={() => api?.scrollPrev()}
+                aria-label="Testemunho anterior"
+                className={arrowClassName}
+              >
+                <ChevronLeft className="w-5 h-5 transition-transform group-hover/arrow:-translate-x-0.5" />
+              </button>
+
+              <div className="flex items-center gap-2">
+                {Array.from({ length: snapCount }).map((_, i) => (
+                  <button
+                    key={i}
+                    type="button"
+                    onClick={() => api?.scrollTo(i)}
+                    aria-label={`Ver testemunho ${i + 1}`}
+                    aria-current={i === selected}
+                    className={cn(
+                      "h-2.5 rounded-full transition-all duration-300",
+                      i === selected
+                        ? "w-8 bg-primary"
+                        : "w-2.5 bg-primary/25 hover:bg-primary/50",
+                    )}
+                  />
+                ))}
+              </div>
+
+              <button
+                type="button"
+                onClick={() => api?.scrollNext()}
+                aria-label="Testemunho seguinte"
+                className={arrowClassName}
+              >
+                <ChevronRight className="w-5 h-5 transition-transform group-hover/arrow:translate-x-0.5" />
+              </button>
             </div>
           )}
         </AnimatedSection>
