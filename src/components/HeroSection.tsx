@@ -1,5 +1,5 @@
 import { ChevronDown } from "lucide-react";
-import heroImage from "@/assets/inicio.jpeg";
+import heroImage from "@/assets/inicio.webp";
 
 export function HeroSection() {
   const scrollToNext = () => {
@@ -21,7 +21,11 @@ export function HeroSection() {
           alt="Escritório da Outstanding Solutions com a equipa a trabalhar"
           className="w-full h-full object-cover scale-105 animate-fade-in"
           style={{ animationDuration: "1.5s" }}
+          width={1600}
+          height={900}
           loading="eager"
+          // Lowercase on purpose: React 18 doesn't know `fetchPriority` yet.
+          {...{ fetchpriority: "high" }}
         />
         {/* Subtle overlays — keep image dominant */}
         <div className="absolute inset-0 bg-gradient-to-t from-secondary/85 via-secondary/10 to-secondary/30" />

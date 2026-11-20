@@ -1,6 +1,6 @@
 import { Lightbulb, Shield, Target } from "lucide-react";
 import { AnimatedSection } from "@/components/AnimatedSection";
-import aboutImage from "@/assets/quem-somos.jpeg";
+import aboutImage from "@/assets/quem-somos.webp";
 
 const promises = [
   {
@@ -45,7 +45,10 @@ export function AboutSection() {
                   src={aboutImage}
                   alt="Equipa Outstanding Solutions a trabalhar em conjunto"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  width={1200}
+                  height={900}
                   loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-secondary/40 via-transparent to-transparent" />
               </div>

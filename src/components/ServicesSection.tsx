@@ -1,8 +1,8 @@
 import { TrendingUp, Calculator, Users, ChevronRight } from "lucide-react";
 import { AnimatedSection } from "@/components/AnimatedSection";
-import servicos1 from "@/assets/servicos-1.jpeg";
-import servicos2 from "@/assets/servicos-2.jpeg";
-import servicos3 from "@/assets/servicos-3.jpeg";
+import servicos1 from "@/assets/servicos-1.webp";
+import servicos2 from "@/assets/servicos-2.webp";
+import servicos3 from "@/assets/servicos-3.webp";
 
 const services = [
   {
@@ -13,6 +13,7 @@ const services = [
     description:
       "Somos o seu verdadeiro gabinete de consultoria financeira. Focamo-nos em planeamento estratégico para otimizar o desempenho do seu negócio e garantir a sua estabilidade.",
     image: servicos1,
+    imageSize: { width: 1200, height: 957 },
     features: [
       {
         title: "Apoio à Gestão",
@@ -36,6 +37,7 @@ const services = [
     description:
       "Vamos além do cumprimento de obrigações fiscais. Prestamos serviços de Contabilidade e Fiscalidade em todos os regimes e dimensões, atuando com transparência e rigor.",
     image: servicos2,
+    imageSize: { width: 1200, height: 965 },
     features: [
       {
         title: "Otimização Fiscal",
@@ -55,6 +57,7 @@ const services = [
     description:
       "O capital humano é o seu ativo mais valioso. Oferecemos uma solução multidisciplinar que integra as necessidades de Recursos Humanos com a estratégia financeira.",
     image: servicos3,
+    imageSize: { width: 1200, height: 960 },
     features: [
       {
         title: "Processamento de Remunerações",
@@ -143,6 +146,9 @@ export function ServicesSection() {
                       <img
                         src={service.image}
                         alt={service.title}
+                        width={service.imageSize.width}
+                        height={service.imageSize.height}
+                        decoding="async"
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                         loading="lazy"
                       />

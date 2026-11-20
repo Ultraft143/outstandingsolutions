@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -37,7 +37,17 @@ const contactInfo = [
 // Form submissions are delivered by FormSubmit (https://formsubmit.co) to the
 // general mailbox. The first submission triggers an activation email that must
 // be confirmed from geral@outstanding.pt before messages start arriving.
-const CONTACT_FORM_ENDPOINT = "https://formsubmit.co/ajax/geral@outstanding.pt";
+// After activation, FormSubmit provides a random alias: set it at build time as
+// VITE_FORMSUBMIT_ID so the email address is no longer exposed in the bundle.
+const CONTACT_FORM_ENDPOINT = `https://formsubmit.co/ajax/${
+  import.meta.env.VITE_FORMSUBMIT_ID || "geral@outstanding.pt"
+}`;
+
+// Submissions faster than this after the page loads are almost certainly bots.
+const MIN_FILL_TIME_MS = 3000;
+
+const MAP_EMBED_URL =
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3102.5!2d-9.2585!3d39.0917!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd18e7d9c9c9c9c9%3A0x0!2sRua%20Dr.%20Gomes%20Leal%203A%2C%20Torres%20Vedras!5e0!3m2!1spt-PT!2spt!4v1700000000000!5m2!1spt-PT!2spt";
 
 const interests = [
   { id: "consultoria", label: "Consultoria Financeira" },
@@ -58,10 +68,33 @@ export function ContactSection() {
 
   const [isSending, setIsSending] = useState(false);
   const [honeypot, setHoneypot] = useState("");
+  const [showMap, setShowMap] = useState(false);
+  const mountedAt = useRef(Date.now());
+
+  const resetForm = () =>
+    setFormData({
+      nome: "",
+      email: "",
+      telefone: "",
+      empresa: "",
+      interesses: [],
+    });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (isSending) return;
+
+    // Likely spam (honeypot filled or submitted too fast): pretend it worked
+    // without sending anything, so bots get no signal.
+    if (honeypot || Date.now() - mountedAt.current < MIN_FILL_TIME_MS) {
+      toast({
+        title: "Mensagem enviada!",
+        description: "Entraremos em contacto consigo brevemente.",
+      });
+      resetForm();
+      return;
+    }
+
     setIsSending(true);
 
     const interessesLabels = interests
@@ -85,7 +118,6 @@ export function ContactSection() {
           _subject: `Novo contacto do site — ${formData.nome} (${formData.empresa})`,
           _replyto: formData.email,
           _template: "table",
-          _honey: honeypot,
         }),
       });
 
@@ -98,13 +130,7 @@ export function ContactSection() {
         title: "Mensagem enviada!",
         description: "Entraremos em contacto consigo brevemente.",
       });
-      setFormData({
-        nome: "",
-        email: "",
-        telefone: "",
-        empresa: "",
-        interesses: [],
-      });
+      resetForm();
     } catch {
       toast({
         variant: "destructive",
@@ -292,18 +318,35 @@ export function ContactSection() {
               </div>
 
               {/* Google Maps */}
+              {/* Google Maps — only loaded after the visitor asks for it, so no
+                  data is sent to Google on page load. */}
               <div className="mt-8 rounded-xl overflow-hidden">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3102.5!2d-9.2585!3d39.0917!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd18e7d9c9c9c9c9%3A0x0!2sRua%20Dr.%20Gomes%20Leal%203A%2C%20Torres%20Vedras!5e0!3m2!1spt-PT!2spt!4v1700000000000!5m2!1spt-PT!2spt"
-                  width="100%"
-                  height="200"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Localização Outstanding Solutions"
-                  className="rounded-xl"
-                ></iframe>
+                {showMap ? (
+                  <iframe
+                    src={MAP_EMBED_URL}
+                    width="100%"
+                    height="200"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    title="Localização Outstanding Solutions"
+                    className="rounded-xl"
+                  ></iframe>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={() => setShowMap(true)}
+                    className="w-full h-[200px] rounded-xl bg-primary-foreground/10 hover:bg-primary-foreground/15 border border-primary-foreground/20 flex flex-col items-center justify-center gap-2 px-6 text-center transition-colors"
+                  >
+                    <MapPin className="w-7 h-7" />
+                    <span className="font-semibold">Mostrar mapa</span>
+                    <span className="text-xs text-primary-foreground/70">
+                      Ao carregar o mapa, o Google recebe dados de navegação
+                      (como o seu endereço IP).
+                    </span>
+                  </button>
+                )}
               </div>
             </div>
           </AnimatedSection>

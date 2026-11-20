@@ -11,6 +11,11 @@ export default defineConfig(({ mode }) => ({
     port: 8080,
   },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
+  ssr: {
+    // CommonJS-only packages must be bundled into the pre-render (SSR) build so
+    // Node's ESM loader can use their named exports.
+    noExternal: ["react-helmet-async"],
+  },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

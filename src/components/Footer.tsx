@@ -49,7 +49,9 @@ export function Footer() {
             <div className="mb-2 -mt-8">
               <img 
                 src={logoWhite} 
-                alt="Outstanding Solutions" 
+                alt="Outstanding Solutions"
+                width={1920}
+                height={1280}
                 className="h-24 w-auto brightness-0 invert"
               />
             </div>
@@ -99,13 +101,13 @@ export function Footer() {
             </p>
             <div className="flex gap-6">
               <Link
-                to="/politica-privacidade"
+                to="/politica-privacidade/"
                 className="text-secondary-foreground/60 hover:text-primary text-sm transition-colors"
               >
                 Política de Privacidade
               </Link>
               <Link
-                to="/termos-condicoes"
+                to="/termos-condicoes/"
                 className="text-secondary-foreground/60 hover:text-primary text-sm transition-colors"
               >
                 Termos e Condições

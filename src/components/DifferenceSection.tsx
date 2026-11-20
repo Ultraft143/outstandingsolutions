@@ -8,6 +8,7 @@ import {
   Heart,
 } from "lucide-react";
 import { AnimatedSection } from "@/components/AnimatedSection";
+import differenceBackground from "@/assets/diferenca.webp";
 
 const needs = [
   {
@@ -63,7 +64,10 @@ export function DifferenceSection() {
       {/* Background image with overlay */}
       <div className="absolute inset-0 opacity-15">
         <img
-          src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1600&q=80"
+          src={differenceBackground}
+          width={1280}
+          height={854}
+          decoding="async"
           alt=""
           aria-hidden="true"
           className="w-full h-full object-cover"
