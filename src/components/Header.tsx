@@ -50,6 +50,8 @@ export function Header() {
           <img
             src={isScrolled ? logoHorizontal : logoWhite}
             alt="Outstanding Solutions - Consultoria Financeira"
+            width={1920}
+            height={1280}
             className="h-20 md:h-24 lg:h-28 w-auto transition-all duration-300 -my-4"
           />
         </button>

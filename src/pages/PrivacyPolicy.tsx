@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logoWhite from "@/assets/logo-white.png";
+import { Seo } from "@/components/Seo";
 
 export default function PrivacyPolicy() {
   useEffect(() => {
@@ -10,6 +11,11 @@ export default function PrivacyPolicy() {
   }, []);
   return (
     <div className="min-h-screen bg-background">
+      <Seo
+        path="/politica-privacidade/"
+        title="Política de Privacidade | Outstanding Solutions"
+        description="Saiba como a Outstanding Solutions recolhe, utiliza e protege os seus dados pessoais, e quais os seus direitos enquanto titular ao abrigo do RGPD."
+      />
       {/* Header */}
       <header className="bg-secondary py-2">
         <div className="container mx-auto px-4">
@@ -17,6 +23,8 @@ export default function PrivacyPolicy() {
             <img
               src={logoWhite}
               alt="Outstanding Solutions"
+              width={1920}
+              height={1280}
               className="h-20 md:h-24 lg:h-28 w-auto -mt-2 mb-[-1rem] brightness-0 invert relative z-10"
             />
           </Link>
@@ -39,7 +47,7 @@ export default function PrivacyPolicy() {
 
           <div className="prose prose-lg max-w-none text-foreground/80 space-y-6">
             <p className="text-sm text-muted-foreground">
-              Última atualização: {new Date().toLocaleDateString("pt-PT")}
+              Última atualização: 18/11/2026
             </p>
 
             <section className="space-y-4">
